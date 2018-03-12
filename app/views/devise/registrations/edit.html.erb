@@ -1,0 +1,69 @@
+<% provide :title, "Update account infomation" %>
+
+<div class="row">
+  <div class="offset-md-4 col-md-4">
+
+    <h2 class="center">Update account infomation</h2>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+
+      <div class="form-group">
+        <%= f.label :username %>
+        <%= f.text_field :username, autofocus: true, class: "form-control " %>
+        <%= render "shared/error_message", object: @user, field: :username %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, autocomplete: "email", class: "form-control" %>
+        <%= render "shared/error_message", object: @user, field: :email %>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+        <small class="form-text text-muted">
+          leave blank if you don't want to change it
+        </small>
+        <% if @minimum_password_length %>
+          <small class="form-text text-muted">
+            <%= @minimum_password_length %> characters minimum
+          </small>
+        <% end %>
+        <%= render "shared/error_message", object: @user, field: :password %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+        <%= render "shared/error_message", object: @user, field: :password_confirmation %>
+      </div>
+
+
+      <div class="form-group">
+        <%= f.label :current_password %>
+        <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
+        <small class="form-text text-muted">
+          we need your current password to confirm your changes
+        </small>
+        <%= render "shared/error_message", object: @user, field: :current_password %>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit "Update", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+
+    <h3>Cancel my account</h3>
+
+    <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %></p>
+
+    <%= link_to "Back", :back %>
+  </div>
+</div>
+
+<%= render "shared/highlight_error_field" %>

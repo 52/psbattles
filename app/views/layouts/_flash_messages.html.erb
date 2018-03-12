@@ -1,5 +1,8 @@
 <% if flash.any? %>
-  <% flash.each |type, message| do %>
+  <% flash.each do |type, message| %>
+    <% type = "success" if "notice" == type %>
+    <% type = "danger"  if "alert"  == type %>
+
     <%= content_tag(:div, message, class: "alert alert-#{type}") %>
   <% end %>
 <% end %>

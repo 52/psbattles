@@ -13,6 +13,7 @@ gem "turbolinks",     "~> 5"
 gem "jbuilder",       "~> 2.5"
 gem "bootstrap",      "~> 4.0.0"
 gem "jquery-rails"
+gem "devise"
 
 group :development, :test do
   gem "awesome_print"

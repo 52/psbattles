@@ -1,0 +1,5 @@
+<% if object.errors[field].any? %>
+  <div class="invalid-feedback">
+    <%= "#{field.to_s.humanize} #{object.errors[field][0]}" %>
+  </div>
+<% end %>
