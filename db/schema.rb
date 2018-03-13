@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180310091559) do
+ActiveRecord::Schema.define(version: 20180312023238) do
+
+  create_table "battles", force: :cascade do |t|
+    t.string "title"
+    t.string "link"
+    t.integer "points", default: 1
+    t.text "description"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_battles_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

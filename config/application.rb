@@ -27,5 +27,8 @@ module Psbattles
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Autoload custom validators
+    config.autoload_paths << "#{config.root}/lib/validators"
   end
 end
