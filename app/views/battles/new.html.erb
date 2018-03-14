@@ -1,0 +1,32 @@
+<% provide :title, "Create a new battle" %>
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <h2 class="center">Create a new battle</h2>
+    <%= form_for @battle do |f| %>
+      <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title, autofocus: true, class: "form-control" %>
+        <%= render "shared/error_message", object: @battle, field: :title %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :link, "Imgur link" %>
+        <%= f.text_field :link, class: "form-control" %>
+        <small class="form-text text-muted">
+          Example: https://imgur.com/YP8CxhH or https://i.imgur.com/YP8CxhH.jpg
+        </small>
+        <%= render "shared/error_message", object: @battle, field: :link %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_area :description, class: "form-control" %>
+        <%= render "shared/error_message", object: @battle, field: :description %>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit "Create battle", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -6,5 +6,7 @@ Rails.application.routes.draw do
     get    'login',  to: 'devise/sessions#new'
     delete 'logout', to: 'devise/sessions#destroy'
   devise_for :users
+
+  resources :battles
   end
 end
