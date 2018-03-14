@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-md-2 offset-md-2 battle-points">
+    <%= pluralize battle.points, "point" %>
+  </div>
+  <div class="col-md-6">
+    <h2><%= link_to battle.title, @battle %></h2>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <section class="battle-image">
+      <%= image_tag battle.link, width: 500 %>
+    </section>
+    <% unless battle.description.nil? %>
+      <p><%= battle.description %></p>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+  <p>
+    Post by <%= battle.user.username %>,
+    <%= time_ago_in_words battle.created_at %> ago
+  </p>
+    </div>
+</div>

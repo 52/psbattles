@@ -2,6 +2,10 @@ class BattlesController < ApplicationController
   before_action :authenticate_user!, except: [:show]
   before_action :battle_params, only: [:create, :update]
 
+  def show
+    @battle = Battle.friendly.find params[:id]
+  end
+
   def new
     @battle = current_user.battles.new
   end

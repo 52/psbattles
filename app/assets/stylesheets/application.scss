@@ -1,7 +1,11 @@
 @import "bootstrap";
 
 body {
-  padding-top: 60px;
+  padding-top: 100px;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 footer {
@@ -15,4 +19,17 @@ h2.center {
 
 .invalid-feedback {
   display: block;
+}
+
+// Battle page
+
+.battle-points {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.battle-image {
+  width: 500px;
+  margin: 2em auto;
 }
