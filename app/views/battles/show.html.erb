@@ -4,7 +4,7 @@
 
 <% if user_signed_in? %>
   <div id="submission_form">
-    <%= render "shared/submission_form" %>
+    <%= render "shared/submission_form", button: "Submit" %>
   </div>
 <% end %>
   <div id="submissions">

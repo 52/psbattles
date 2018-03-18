@@ -5,7 +5,6 @@ class BattlesController < ApplicationController
 
   def show
     @submission = Submission.new
-    @submission.battle_id = @battle.id
   end
 
   def new
