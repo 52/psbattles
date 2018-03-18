@@ -30,5 +30,8 @@ module Psbattles
 
     # Autoload custom validators
     config.autoload_paths << "#{config.root}/lib/validators"
+
+    # Enable embed authenticity token in remote form
+    config.action_view.embed_authenticity_token_in_remote_forms = true
   end
 end

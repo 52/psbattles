@@ -1,0 +1,26 @@
+<div class="submission">
+  <div class="row">
+    <div class="col-md-1 offset-md-2">
+      <%= submission.user.username %>
+    </div>
+    <div class="col-md-6">
+      <% unless submission.title.nil? %>
+        <%= submission.title %>
+      <% end %>
+    </div>
+    <div class="col-md-2">
+      <%= pluralize submission.points, "point" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8 offset-md-3">
+      <section>
+        <%= image_tag submission.link, width: 400 %>
+      </section>
+      <% unless submission.description.nil? %>
+        <p><%= submission.description %></p>
+      <% end %>
+    </div>
+  </div>
+</div>

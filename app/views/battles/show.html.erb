@@ -1,3 +1,14 @@
 <% provide :title, @battle.title %>
 
 <%= render @battle %>
+
+<% if user_signed_in? %>
+  <div id="submission_form">
+    <%= render "shared/submission_form" %>
+  </div>
+<% end %>
+  <div id="submissions">
+    <% if @battle.submissions.any? %>
+      <%= render @battle.submissions %>
+    <% end %>
+  </div>

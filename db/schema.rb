@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180314112042) do
+ActiveRecord::Schema.define(version: 20180317011837) do
 
   create_table "battles", force: :cascade do |t|
     t.string "title"
@@ -34,6 +34,19 @@ ActiveRecord::Schema.define(version: 20180314112042) do
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  end
+
+  create_table "submissions", force: :cascade do |t|
+    t.string "link"
+    t.integer "points", default: 1
+    t.string "title"
+    t.text "description"
+    t.integer "user_id"
+    t.integer "battle_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["battle_id"], name: "index_submissions_on_battle_id"
+    t.index ["user_id"], name: "index_submissions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -4,6 +4,8 @@ class BattlesController < ApplicationController
   before_action :owner, only: [:edit, :update, :destroy]
 
   def show
+    @submission = Submission.new
+    @submission.battle_id = @battle.id
   end
 
   def new

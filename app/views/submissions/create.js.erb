@@ -1,0 +1,6 @@
+<% if @submission.valid? %>
+  $("#submission_form").remove();
+  $('#submissions').prepend("<%= j render(@submission) %>");
+<% else %>
+  $("#submission_form").html("<%= j render('shared/submission_form') %>");
+  <% end %>

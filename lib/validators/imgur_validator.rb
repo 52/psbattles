@@ -1,7 +1,8 @@
 require "net/http"
 
 class ImgurValidator < ActiveModel::EachValidator
-  IMGUR = %r{\A(https?://)?(m\.)?(?(2)|(i\.)?)imgur\.com/(\w+)(\.jpg)?\z}
+  IMGUR = %r{\A(https?://)?(m\.)?(?(2)|(i\.)?)imgur\.com/(\w+)(\.jpg|\.png)?\z}
+  ALLOWED_FORMAT = %w(image/jpeg image/png).freeze
 
   def validate_each record, attribute, value
     # check link format
@@ -17,7 +18,7 @@ class ImgurValidator < ActiveModel::EachValidator
       # check link exists
       if res.code == "200"
         # check image type
-        if res["content-type"] == "image/jpeg"
+        if ALLOWED_FORMAT.include? res["content-type"]
           record[attribute] = image_link
         else
           record.errors[attribute] << "must be a jpeg image"
