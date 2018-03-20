@@ -5,7 +5,7 @@ class BattleTest < ActiveSupport::TestCase
     @battle = battles :dog
   end
 
-  test "link should be a valid imgur jpeg image hash" do
+  test "link should be a valid imgur jpeg image" do
     valid_links = %w(
       https://imgur.com/YP8CxhH
       https://m.imgur.com/YP8CxhH

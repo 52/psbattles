@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180317011837) do
+ActiveRecord::Schema.define(version: 20180319081158) do
+
+  create_table "battle_likes", force: :cascade do |t|
+    t.integer "battle_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["battle_id", "user_id"], name: "index_battle_likes_on_battle_id_and_user_id", unique: true
+    t.index ["battle_id"], name: "index_battle_likes_on_battle_id"
+    t.index ["user_id"], name: "index_battle_likes_on_user_id"
+  end
 
   create_table "battles", force: :cascade do |t|
     t.string "title"
@@ -34,6 +44,16 @@ ActiveRecord::Schema.define(version: 20180317011837) do
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  end
+
+  create_table "submission_likes", force: :cascade do |t|
+    t.integer "submission_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["submission_id", "user_id"], name: "index_submission_likes_on_submission_id_and_user_id", unique: true
+    t.index ["submission_id"], name: "index_submission_likes_on_submission_id"
+    t.index ["user_id"], name: "index_submission_likes_on_user_id"
   end
 
   create_table "submissions", force: :cascade do |t|

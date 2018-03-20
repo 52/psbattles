@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_many :battles
   has_many :submissions
+  has_many :battle_likes
+  has_many :submission_likes
 
   validates :username, presence: true, uniqueness: {case_sensitive: false},
                        length: {minimum: 3, maximum: 20},
