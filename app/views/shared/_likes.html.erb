@@ -1,0 +1,12 @@
+<span class="points">
+  <%= pluralize object.likes.count + 1, "point" %>
+</span>
+<% if user_signed_in? && current_user != object.user %>
+  <div class="like_form">
+    <% if object.liked_by? current_user %>
+      <%= render "shared/unlike_button", object: object %>
+    <% else %>
+      <%= render "shared/like_button", object: object %>
+    <% end %>
+  </div>
+<% end %>

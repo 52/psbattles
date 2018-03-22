@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   resources :battles do
     resources :submissions, only: [:create, :edit, :update, :destroy]
   end
+
+  resources :likes, only: [:create, :destroy]
 end

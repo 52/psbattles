@@ -1,0 +1,5 @@
+<%= render "points" %>
+
+$("<%= dom_id_for @object %> .like_form").html(
+  "<%= j render('shared/like_button', object: @object) %>"
+);

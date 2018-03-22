@@ -1,35 +1,37 @@
-<div class="row">
-  <div class="col-md-2 offset-md-2 battle-points">
-    <%= pluralize battle.points, "point" %>
-  </div>
-  <div class="col-md-6">
-    <h2><%= link_to battle.title, @battle %></h2>
-  </div>
-</div>
-
-
-<div class="row">
-  <div class="col-md-8 offset-md-2">
-    <section class="battle-image">
-      <%= image_tag battle.link, width: 500 %>
-    </section>
-    <% unless battle.description.nil? %>
-      <p><%= battle.description %></p>
-    <% end %>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-8 offset-md-2">
-  <p>
-    Post by <%= battle.user.username %>,
-    <%= time_ago_in_words battle.created_at %> ago
-    <% if current_user == battle.user %>
-      |
-      <%= link_to "edit", edit_battle_path(battle) %>
-      |
-      <%= link_to "delete", battle, method: :delete, data: {confirm: "You sure?"} %>
-    <% end %>
-  </p>
+<div id="battle_<%= battle.id %>">
+  <div class="row">
+    <div class="col-md-2 offset-md-2">
+      <%= render "shared/likes", object: battle %>
     </div>
+    <div class="col-md-6">
+      <h2><%= link_to battle.title, battle %></h2>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <section class="battle-image">
+        <%= image_tag battle.link, width: 500 %>
+      </section>
+      <% unless battle.description.nil? %>
+        <p><%= battle.description %></p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+    <p>
+      Post by <%= battle.user.username %>,
+      <%= time_ago_in_words battle.created_at %> ago
+      <% if current_user == battle.user %>
+        |
+        <%= link_to "edit", edit_battle_path(battle) %>
+        |
+        <%= link_to "delete", battle, method: :delete, data: {confirm: "You sure?"} %>
+      <% end %>
+    </p>
+      </div>
+  </div>
 </div>

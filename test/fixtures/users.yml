@@ -3,3 +3,7 @@ john:
   email: john@local.com
   encrypted_password: <%= User.new.send :password_digest, DEFAULT_TEST_PASSWORD %>
 
+jane:
+  username: jane
+  email: jane@local.com
+  encrypted_password: <%= User.new.send :password_digest, DEFAULT_TEST_PASSWORD %>

@@ -9,7 +9,7 @@
       <% end %>
     </div>
     <div class="col-md-2">
-      <%= pluralize submission.points, "point" %>
+      <%= render "shared/likes", object: submission %>
     </div>
   </div>
 

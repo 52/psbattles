@@ -1,0 +1,6 @@
+<% like = object.likes.find_by user_id: current_user.id %>
+<%= form_tag like_path(like), method: :delete, remote: true do %>
+  <%= hidden_field_tag :type, object.class.to_s.downcase %>
+  <%= hidden_field_tag :object_id, object.id %>
+  <%= submit_tag "Unlike", class: "btn" %>
+<% end %>
