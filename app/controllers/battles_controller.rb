@@ -1,7 +1,14 @@
 class BattlesController < ApplicationController
-  before_action :authenticate_user!, except: [:show]
-  before_action :load_battle, except: [:new, :create]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :load_battle, except: [:index, :new, :create]
   before_action :owner, only: [:edit, :update, :destroy]
+
+  def index
+    @type = params[:type].downcase # "top" or "newest"
+    @battles = Battle.send(@type)
+
+    respond_to{|format| format.js}
+  end
 
   def show
     @submission = Submission.new

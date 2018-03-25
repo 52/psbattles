@@ -22,9 +22,12 @@ h2.center {
 }
 
 // Battle page
+.battle {
+  margin-bottom: 2em;
+  border-bottom: 1px solid $gray-500;
+}
 
 .points {
-  // text-align: center;
   font-size: 1.5em;
   font-weight: bold;
 }
@@ -32,6 +35,14 @@ h2.center {
 .battle-image {
   width: 500px;
   margin: 2em auto;
+}
+
+#sort_by_links {
+  margin-bottom: 1.5em;
+
+  .active {
+  font-weight: bold;
+  }
 }
 
 // Submissions

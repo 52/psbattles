@@ -1,0 +1,6 @@
+$("#submissions").html(
+  "<%= j render(@submissions) %>"
+);
+
+$("#sort_by_links .active").removeClass("active");
+$("#<%= @type %>_link").addClass("active");

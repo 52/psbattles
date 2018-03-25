@@ -1,5 +1,5 @@
 <span class="points">
-  <%= pluralize object.likes.count + 1, "point" %>
+  <%= pluralize object.points, "point" %>
 </span>
 <% if user_signed_in? && current_user != object.user %>
   <div class="like_form">

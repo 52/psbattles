@@ -1,0 +1,6 @@
+$("#battles").html(
+  "<%= j render(@battles) %>"
+);
+
+$("#sort_by_links .active").removeClass("active");
+$("#<%= @type %>_link").addClass("active");

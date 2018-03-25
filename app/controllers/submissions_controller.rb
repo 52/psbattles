@@ -1,8 +1,15 @@
 class SubmissionsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :load_battle,     only: [:edit, :update, :destroy, :create]
+  before_action :authenticate_user!, except: [:index]
+  before_action :load_battle
   before_action :load_submission, only: [:edit, :update, :destroy]
   before_action :owner,           only: [:edit, :update, :destroy]
+
+  def index
+    @type = params[:type].downcase # "top" or "newest"
+    @submissions = @battle.submissions.send(@type)
+
+    respond_to{|format| format.js}
+  end
 
   def create
     @submission = current_user.submissions.build submission_params

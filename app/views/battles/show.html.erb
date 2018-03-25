@@ -7,8 +7,18 @@
     <%= render "shared/submission_form", button: "Submit" %>
   </div>
 <% end %>
-  <div id="submissions">
-    <% if @battle.submissions.any? %>
-      <%= render @battle.submissions %>
-    <% end %>
+
+<% if @battle.submissions.any? %>
+  <div id="sort_by_links" class="row">
+    <div class="offset-md-2 col-md-6">
+    <%= link_to "Top", battle_submissions_path(@battle), id: "top_link",
+                remote: true, data: {params: "type=top"}, class: "active" %>
+    |
+    <%= link_to "Newest", battle_submissions_path(@battle), id: "newest_link",
+                remote: true, data: {params: "type=newest"} %>
+    </div>
   </div>
+  <div id="submissions">
+      <%= render @battle.submissions.top %>
+  </div>
+<% end %>

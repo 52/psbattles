@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :battles do
-    resources :submissions, only: [:create, :edit, :update, :destroy]
+    resources :submissions, only: [:index, :create, :edit, :update, :destroy]
   end
 
   resources :likes, only: [:create, :destroy]
