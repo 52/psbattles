@@ -2,7 +2,7 @@
 
 This is a play around sample app, inspired by the subreddit [r/photoshopbattles](http://reddit.com/r/photoshopbattles).
 ### Play around
-The sample app is hosted at [https://psbattles.herokuapp.com](https://psbattles.herokuapp.com).  
+The sample app is hosted at [https://ps-battles.herokuapp.com](https://ps-battles.herokuapp.com).  
 If you don't want to register, you can use this account to play around:
 - Email: john@local.com
 - Password: 123  
